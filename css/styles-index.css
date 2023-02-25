@@ -167,6 +167,22 @@ h1 {
   justify-content: space-between;
   gap: 30px;
   padding: 0;
+  z-index: 1;
+  position: relative;
+}
+.main-page-second-container-description {
+  z-index: 3;
+  background-color: rgba(47, 48, 58, 0.8);
+  height: 70px;
+  position: absolute;
+  width: 370px;
+  margin-top: 224px;
+  text-align: center;
+  color: #fff;
+  padding-top: 27px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 .main-page-third-container-icons {
@@ -338,7 +354,7 @@ h1 {
   padding: 49px 45px 49px 24px;
 }
 .portfolio-examples > li > figure:hover .image-description-text {
-  transform: translateX(0);
+  transform: translateY(0%);
   background: rgba(33, 150, 243, 0.9);
   font-size: 18px;
   color: white;
