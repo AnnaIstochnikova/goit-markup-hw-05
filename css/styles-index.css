@@ -326,9 +326,12 @@ h1 {
   margin: 0;
   border: 1px solid #eee;
   position: relative;
+  overflow: hidden;
 }
 .portfolio-examples > li > figure > figcaption {
+  position: relative;
   padding: 20px 24px;
+  z-index: 9;
 }
 .portfolio-examples > li > figure:hover,
 .portfolio-examples > li > figure:focus {
@@ -348,10 +351,12 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 370px;
-  height: 294px;
-  transform: translateY(300%);
+  width: 100%;
+  height: 72.7%;
+  transform: translateY(150%);
   padding: 49px 45px 49px 24px;
+  transition: transform 250ms ease;
+  z-index: 1;
 }
 .portfolio-examples > li > figure:hover .image-description-text {
   transform: translateY(0%);
