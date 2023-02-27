@@ -57,7 +57,12 @@
     <main>
       <div class="main-page-box">
         <h1>EFEKTYWNE ROZWIĄZANIA<br />DLA WASZEGO BIZNESU</h1>
-        <button class="button-main-page" type="button">Zamów usługę</button>
+        <button data-modal-open class="button-main-page" type="button">Zamów usługę</button>
+        <div class="backdrop" data-modal is-hidden>
+          <div class="modal" is-hidden>
+            <button type="button" class="data-modal-close" data-modal-close>X</button>
+          </div>
+        </div>
       </div>
       <div class="main-page-first-container">
         <ul class="main-page-first-container-list">
@@ -570,5 +575,6 @@
         </div>
       </div>
     </footer>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
