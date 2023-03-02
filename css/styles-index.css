@@ -2,6 +2,7 @@
   --main-color: #212121;
   --secondary-color: #757575;
   --brand-color: #2196f3;
+  --transition-timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   font-family: 'roboto', sans-serif;
@@ -12,7 +13,6 @@ body {
 svg {
   transform-origin: center;
 }
-
 a {
   text-decoration: none;
 }
@@ -21,37 +21,37 @@ header {
   border-bottom: 1px solid #ececec;
 }
 .container-header {
-  display: flex;
   align-items: center;
-  width: 1200px;
+  display: flex;
   height: 80px;
   justify-content: space-between;
   margin: 0 auto;
+  width: 1200px;
 }
 .logo-top > a {
-  text-decoration: none;
-  font-family: 'Raleway';
   color: #000;
+  font-family: 'Raleway';
   font-size: 26px;
   line-height: 1.1;
+  text-decoration: none;
 }
 .logo-first-part {
   color: var(--brand-color);
 }
 .navbar,
 .navbar > li > a {
-  list-style: none;
-  text-decoration: none;
   color: var(--main-color);
   font-weight: 500;
+  list-style: none;
+  text-decoration: none;
 }
 .navbar {
-  position: relative;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  display: flex;
   gap: 45px;
+  justify-content: space-between;
   margin: auto 373px auto auto;
+  position: relative;
 }
 .icon-header {
   fill: #757575;
@@ -64,16 +64,20 @@ header {
 .navbar > li > a:hover,
 .navbar > li > a:focus {
   color: var(--brand-color);
+  transition-property: color;
+  transition: var(--transition-timing-function);
 }
 .active::after {
+  background: var(--brand-color);
+  border-radius: 2px;
   content: '';
   display: block;
   height: 4px;
-  width: 100%;
-  border-radius: 2px;
-  background: var(--brand-color);
   position: relative;
+  top: 30px;
+  width: 100%;
 }
+
 .contact-header > a,
 .contact-header > a {
   text-decoration: none;
@@ -84,86 +88,106 @@ header {
 .contact-header > a:hover .icon-header,
 .contact-header > a:focus .icon-header {
   fill: var(--brand-color);
+  transition-property: fill;
+  transition: var(--transition-timing-function);
 }
 .contact-header > a:hover,
 .contact-header > a:focus {
   color: var(--brand-color);
+  transition-property: color;
+  transition: var(--transition-timing-function);
 }
-
+.navbar > li > .active {
+  color: var(--brand-color);
+}
 /* navigation*/
 
 /*main*/
 
 h1 {
-  font-weight: 900;
-  font-size: 44px;
-  text-align: center;
   color: #fff;
-  line-height: 1.3;
+  font-size: 44px;
+  font-weight: 900;
   letter-spacing: 3px;
-  padding-top: 200px;
-  padding-bottom: 30px;
+  line-height: 1.3;
   margin: 0;
+  padding-bottom: 30px;
+  padding-top: 200px;
+  text-align: center;
 }
 .main-page-box {
   background-color: #2f303a;
   background-image: url('../images/10.jpg'), url('../images/11.jpg');
-  text-align: center;
   height: 600px;
+  text-align: center;
 }
 .button-main-page {
   background: var(--brand-color);
-  font-weight: 700;
-  color: #fff;
-  line-height: 30px;
   border-radius: 4px;
   border: none;
+  color: #fff;
+  font-weight: 700;
+  height: 50px;
+  line-height: 30px;
   position: relative;
   width: 200px;
-  height: 50px;
 }
 .button-main-page:hover,
 .button-main-page:focus {
   color: var(--main-color);
   cursor: pointer;
+  transition-property: color;
+  transition: var(--transition-timing-function);
 }
 .modal {
-  visibility: visible;
-  width: 528px;
-  height: 581px;
   background-color: #fff;
+  height: 581px;
+  left: 50%;
   position: fixed;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
+  visibility: visible;
+  width: 528px;
   z-index: 20;
 }
 .backdrop {
-  width: 100%;
-  height: 100%;
   background-color: rgba(47, 48, 58, 0.2);
-  position: fixed;
-  z-index: 20;
+  height: 100%;
   left: 0;
+  opacity: 1;
+  position: fixed;
   top: 0;
+  transition-property: opacity, visibility;
+  transition: var(--transition-timing-function), var(--transition-timing-function),
+    var(--transition-timing-function);
+  visibility: visible;
+  width: 100%;
+  z-index: 20;
 }
 .data-modal-close {
-  pointer-events: initial;
+  background-color: white;
   border-radius: 50%;
   border: 1px rgba(47, 48, 58, 0.2) solid;
-  background-color: white;
-  width: 30px;
   height: 30px;
-  padding: 0;
   margin: 8px 8px 543px 496px;
+  padding: 0;
+  pointer-events: initial;
+  width: 30px;
 }
 
 .modal-close-icon {
-  radius: 50%;
-  fill: #000;
   display: flex;
+  fill: #000;
   justify-content: center;
   margin: auto;
+}
+
+.data-modal-close:hover,
+.data-modal-close:focus {
+  border-color: var(--brand-color);
+  cursor: pointer;
+  transition-property: border-color;
+  transition: var(--transition-timing-function);
 }
 
 .main-page-first-container {
@@ -187,10 +211,10 @@ h1 {
   justify-content: space-between;
 }
 .main-page-first-container-title {
-  font-weight: 700;
   font-size: 14px;
-  text-transform: uppercase;
+  font-weight: 700;
   line-height: 1.1;
+  text-transform: uppercase;
 }
 .main-page-first-container-list > li {
   list-style: none;
@@ -218,38 +242,40 @@ h1 {
 }
 .main-page-second-container-list {
   display: flex;
-  list-style: none;
-  justify-content: space-between;
   gap: 30px;
+  justify-content: space-between;
+  list-style: none;
   padding: 0;
-  z-index: 1;
   position: relative;
+  z-index: 1;
 }
 .main-page-second-container-description {
-  z-index: 3;
   background-color: rgba(47, 48, 58, 0.8);
-  height: 70px;
-  position: absolute;
-  width: 370px;
-  margin-top: 224px;
-  text-align: center;
   color: #fff;
-  padding-top: 27px;
-  font-weight: 700;
-  text-transform: uppercase;
   font-size: 14px;
+  font-weight: 700;
+  height: 70px;
+  margin-top: 224px;
+  padding-top: 27px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 370px;
+  z-index: 3;
 }
 
 .main-page-third-container-icons {
   display: flex;
   justify-content: space-around;
-  width: 206px;
   padding-top: 16px;
+  width: 206px;
 }
 .main-page-third-container-icon:hover,
 .main-page-third-container-icon:focus {
   background-color: var(--brand-color);
   fill: #fff;
+  transition-property: background-color, fill;
+  transition: var(--transition-timing-function), var(--transition-timing-function);
 }
 .main-page-third-container-icon {
   width: 44px;
@@ -262,24 +288,24 @@ h1 {
 }
 .main-page-third-container {
   display: flex;
-  margin: 0 auto;
-  justify-content: space-between;
-  gap: 30px;
   flex-basis: calc((100%-90px) / 4);
+  gap: 30px;
+  justify-content: space-between;
+  margin: 0 auto;
   padding-bottom: 94px;
   padding-left: 0px;
 }
 .main-page-third-container > li > figure {
-  margin: 0px;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+  margin: 0px;
 }
 .main-page-third-container-section {
   margin: 0 auto;
-  width: 1200px;
-  padding-top: 94px;
   padding-left: 0px;
+  padding-top: 94px;
+  width: 1200px;
 }
 .main-page-third-container-section-box {
   background: #f5f4fa;
@@ -302,30 +328,32 @@ h1 {
   padding: 30px 30px 18px 30px;
 }
 .main-page-fourth-container-icon {
-  width: 170px;
-  height: 92px;
-  border: 1px solid #afb1b8;
   border-radius: 4px;
+  border: 1px solid #afb1b8;
   fill: #afb1b8;
+  height: 92px;
+  width: 170px;
 }
 .main-page-fourth-container-icon:hover,
 .main-page-fourth-container-icon:focus {
-  fill: var(--brand-color);
   border: 1px solid var(--brand-color);
+  fill: var(--brand-color);
+  transition-property: fill;
+  transition: var(--transition-timing-function);
 }
 
 .main-page-fourth-container-section > ul {
   display: flex;
-  list-style: none;
   justify-content: space-between;
-  padding-left: 0;
+  list-style: none;
   margin: 0 auto;
+  padding-left: 0;
 }
 .main-page-fourth-container-section {
-  width: 1200px;
   margin: 0 auto;
   padding-bottom: 94px;
   padding-top: 94px;
+  width: 1200px;
 }
 
 /*main*/
@@ -333,34 +361,36 @@ h1 {
 /*portfolio*/
 
 .main-buttons {
-  list-style: none;
   display: flex;
   gap: 8px;
   justify-content: center;
-  padding-inline-start: 0px;
+  list-style: none;
   margin: 94px 0px 34px 0px;
+  padding-inline-start: 0px;
 }
 .main-button {
-  color: var(--main-color);
   background-color: #f5f4fa;
-  line-height: 1.6;
   border-radius: 4px;
   border: none;
+  color: var(--main-color);
+  line-height: 1.6;
 }
 .main-buttons > li > button {
   font-weight: 500;
   font-weight: bold;
-  text-decoration: none;
   padding: 6px 22px;
+  text-decoration: none;
 }
 
 .main-button:hover,
 .main-button:focus {
   background-color: var(--brand-color);
-  list-style: none;
-  cursor: pointer;
-  color: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  cursor: pointer;
+  list-style: none;
+  transition-property: color;
+  transition: var(--transition-timing-function);
 }
 .portfolio-examples-container {
   width: 1200px;
@@ -369,24 +399,23 @@ h1 {
 }
 .portfolio-examples {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
   flex-basis: calc((100%-60px) / 3);
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .portfolio-examples > li > figure {
-  margin: 0;
   border: 1px solid #eee;
-  position: relative;
+  margin: 0;
   overflow: hidden;
+  position: relative;
 }
 .portfolio-examples > li > figure > figcaption {
-  position: relative;
   padding: 20px 24px;
-  z-index: 9;
+  position: relative;
 }
 .portfolio-examples > li > figure:hover,
 .portfolio-examples > li > figure:focus {
@@ -394,24 +423,24 @@ h1 {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .image-description-title {
-  font-weight: 700;
   font-size: 18px;
+  font-weight: 700;
   line-height: 2;
 }
+
 .image-description {
   color: var(--secondary-color);
   line-height: 1.8;
 }
 .image-description-text {
+  height: 72.5%;
+  left: 0;
+  padding: 49px 45px 49px 24px;
   position: absolute;
   top: 0;
-  left: 0;
+  transform: translateY(100%);
+  visibility: hidden;
   width: 100%;
-  height: 72.7%;
-  transform: translateY(150%);
-  padding: 49px 45px 49px 24px;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
 }
 .portfolio-examples > li > figure:hover .image-description-text {
   transform: translateY(0%);
@@ -420,6 +449,12 @@ h1 {
   color: white;
   line-height: 1.55rem;
   letter-spacing: 0.03em;
+  visibility: visible;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  height: 72.5%;
+}
+figcaption {
+  z-index: 3;
 }
 /*portfolio*/
 
@@ -460,6 +495,8 @@ footer {
 .contact-footer > a:hover,
 .contact-footer > a:focus {
   color: var(--brand-color);
+  transition-property: color;
+  transition: var(--transition-timing-function);
 }
 .main-page-footer-container {
   padding-left: 70px;
@@ -476,6 +513,8 @@ footer {
 .main-page-footer-icon:hover,
 .main-page-footer-icon:focus {
   background-color: var(--brand-color);
+  transition-property: background-color;
+  transition: var(--transition-timing-function);
 }
 .main-page-footer-icon {
   width: 44px;
