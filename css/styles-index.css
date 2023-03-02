@@ -119,6 +119,8 @@ h1 {
   border-radius: 4px;
   border: none;
   position: relative;
+  width: 200px;
+  height: 50px;
 }
 .button-main-page:hover,
 .button-main-page:focus {
@@ -146,8 +148,22 @@ h1 {
   top: 0;
 }
 .data-modal-close {
-  margin-left: 490px;
   pointer-events: initial;
+  border-radius: 50%;
+  border: 1px rgba(47, 48, 58, 0.2) solid;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 8px 8px 543px 496px;
+}
+
+.modal-close-icon {
+  radius: 50%;
+  fill: #000;
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 .main-page-first-container {
