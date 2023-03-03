@@ -100,7 +100,6 @@ header {
 .navbar > li > .active {
   color: var(--brand-color);
 }
-/* navigation*/
 
 /*main*/
 
@@ -356,8 +355,6 @@ h1 {
   width: 1200px;
 }
 
-/*main*/
-
 /*portfolio*/
 
 .main-buttons {
@@ -455,10 +452,11 @@ h1 {
 }
 figcaption {
   z-index: 3;
+  background-color: white;
 }
-/*portfolio*/
 
 /*footer*/
+
 .logo-bottom > a {
   text-decoration: none;
   font-family: 'Raleway';
